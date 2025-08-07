@@ -9,13 +9,14 @@ public class Main {
 
         ArrayList<Araba> arabalar = new ArrayList<>();// ArrayList oluşturdum
 
-        arabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 200000));
+        arabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 200000)); // add = eklemek anlamına gelir
         arabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 300000));
         arabalar.add(new Araba(3, "Renault", "Clio", 2025, 205000));
         arabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 24000));
         arabalar.add(new Araba(5, "Renault", "Toros", 2024, 396000));
+        //arabalar.add(new Araba(6, "Ford", "Foxus", 2021, 50000));// araba.add ile diziye nesne türeterek eklendi tekradan ArrayListe manuel olarak eklemeye gerek var mı
 
-        while (true) {// while başlangıç parantezi
+        while (true) {// while başlangıç parantezi > döngü başlandı
 
             System.out.println("====Araba Galerisi====");
 
@@ -23,7 +24,8 @@ public class Main {
             System.out.println("2. Fiyata Göre Filtrele");
             System.out.println("3. Markaya Göre Ara");
             System.out.println("4. Yeni Araba Ekle");
-            System.out.println("5. Çıkış");
+            System.out.println("5. Fiyata Göre Filtreleme Ve Markaya Göre Arama Özellikleri Ekleme");
+            System.out.println("6- Cıkış");
 
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();// secime sayı yazabilmek için
@@ -38,7 +40,7 @@ public class Main {
             }// if bitiş
 
             // Fiyata GÖre Filitreleme
-            else if (secim == 2) {// değilse eğer secim eşitse
+            else if (secim == 2) {// değilse eğer secim 2 eşitse
 
                 System.out.print(" Fiyat Giriniz: "); // ekrana yazdır
 
@@ -71,27 +73,42 @@ public class Main {
                         d.yazdir(); // d üzerinde yazdir metodum çalışıyor
                         bulundu = true;// marka
                     }
-
-
                 }
-                if (!bulundu){ // marka ismi yanlış girildiyse de bulundu eşit değildir
+                if (!bulundu) { // marka ismi yanlış girildiyse de bulundu eşit değildir
                     System.out.println("Aracın Marka Bilgisini Doğru Giriniz");
                 }
+            } else if (secim == 4)// YENİ ARABA EKLEME
+            {
+                System.out.print("Eklemek istediğiniz arabayı giriniz:");
+                String araba = scanner.nextLine();
 
-                else  if(secim==4)
-                {
+                System.out.print("İD giriniz:");
+                int id = scanner.nextInt();
 
-                }
+                scanner.nextLine();
+                System.out.print("Markasını Giriniz:");
+                String marka = scanner.nextLine();
 
+                System.out.print("Modelini Giriniz:");
+                String model = scanner.nextLine();
 
+                System.out.print("Yılını Girini:");
+                int yil = scanner.nextInt();
 
+                System.out.print("Fiyatını Girini:");
+                double fiyat = scanner.nextDouble();
 
+                Araba araba2 = new Araba( id,  marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
 
+                    // Nesne türetilirken hem classa erişilir hemde coonstructr çalışır
 
+                arabalar.add(new Araba(id, marka, model, yil, fiyat)); // önceden oluşturduğum ArrayListe yeni bir araba nesnesi ekler
+                System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
-
-            }// while bitiş parantezi
-        }
-
+            }
+        }// While bitiş
+// class bitiş
     }
-}// class bitiş
+}
+
+// Sorular:

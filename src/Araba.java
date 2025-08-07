@@ -6,10 +6,9 @@ public class Araba { // araba adlı sınıf oluşturuldu
     String marka;
     String model;
     int yil;
-
     double fiyat;
 
-    public Araba(int id, String marka, String model, int yil, double fiyat) {
+    public Araba(int id, String marka, String model, int yil, double fiyat)  {
 
         this.id = id; // değişkenden gelen id consructerdan gelen parametreye atıyoruz
         this.marka = marka;
