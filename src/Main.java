@@ -106,7 +106,11 @@ public class Main {
                 System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
             }
-        }// While bitiş
+                    else if ( secim==5) {
+                System.out.print("Sistemden Çıkış Yaptınız");
+            }
+      break; } // while döngüsünü kırdık
+            // }// While bitiş
 // class bitiş
     }
 }
