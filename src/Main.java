@@ -13,8 +13,8 @@ public class Main {
         arabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 300000));
         arabalar.add(new Araba(3, "Renault", "Clio", 2025, 205000));
         arabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 24000));
-        arabalar.add(new Araba(5, "Renault", "Toros", 2024, 396000));
-        //arabalar.add(new Araba(6, "Ford", "Foxus", 2021, 50000));// araba.add ile diziye nesne türeterek eklendi tekradan ArrayListe manuel olarak eklemeye gerek var mı
+        arabalar.add(new Araba(5, "Renault", "Toros", 2024, 396));
+       // arabalar.add(new Araba(6, "Ford", "Foxus", 2021, 50000));// araba.add ile diziye nesne türeterek eklendi tekradan ArrayListe manuel olarak eklemeye gerek var mı
 
         while (true) {// while başlangıç parantezi > döngü başlandı
 
@@ -55,7 +55,6 @@ public class Main {
                         bulundu = true;// fiyatlar uyumlu olduğu için bulundu true yapıyoruz
 
                     }
-
                 }
                 if (!bulundu) {// fiyatı eşit değilse ekrana uyarı verilecek
                     System.out.println("Bu Fiyata Uygun araç  bulunamadı");
@@ -75,12 +74,11 @@ public class Main {
                     }
                 }
                 if (!bulundu) { // marka ismi yanlış girildiyse de bulundu eşit değildir
-                    System.out.println("Aracın Marka Bilgisini Doğru Giriniz");
+                    System.out.println("Lütfen  Aracın Marka Bilgisini Doğru Giriniz");
                 }
             } else if (secim == 4)// YENİ ARABA EKLEME
             {
-                System.out.print("Eklemek istediğiniz arabayı giriniz:");
-                String araba = scanner.nextLine();
+                System.out.println("Eklemek istediğiniz arabanın bilgilerini giriniz!!");
 
                 System.out.print("İD giriniz:");
                 int id = scanner.nextInt();
@@ -98,21 +96,54 @@ public class Main {
                 System.out.print("Fiyatını Girini:");
                 double fiyat = scanner.nextDouble();
 
-                Araba araba2 = new Araba( id,  marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
+                Araba araba2 = new Araba(id, marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
 
-                    // Nesne türetilirken hem classa erişilir hemde coonstructr çalışır
+                // Nesne türetilirken hem classa erişilir hemde coonstructr çalışır
 
                 arabalar.add(new Araba(id, marka, model, yil, fiyat)); // önceden oluşturduğum ArrayListe yeni bir araba nesnesi ekler
                 System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
             }
-                    else if ( secim==5) {
-                System.out.print("Sistemden Çıkış Yaptınız");
-            }
-      break; } // while döngüsünü kırdık
-            // }// While bitiş
-// class bitiş
-    }
-}
+                else if (secim==5){
 
-// Sorular:
+                System.out.println("Fiyata Göre Ve Markaya Göre Arama Özellikleri Ekle");
+
+                System.out.print("Fiyatı Giriniz:");// fiyat bilgisini alıyoruz
+                double girilenFiyat = scanner.nextInt();
+
+                scanner.nextLine();
+
+                System.out.print("Marka Bilgisini Giriniz:"); // marka bilgisi
+                String marka = scanner.nextLine();
+
+                boolean sonuc = false; // markanın ve fiayatının boolena bulundu tipini önce false yapıyoruz
+
+                for (Araba k: arabalar){ // foreach döngüsünde Araba classında arabalar dizisinde dönüp k değişkenine atıyor
+                    if (k.fiyat<= girilenFiyat && k.marka.equalsIgnoreCase(marka)){ // k dizisinde ki fiyat girilen fiyattan küçük yada eşşitse  marka bilgisinin büyük küçük harf karşılaştırmadan bilgisini eşitle
+                     k.yazdir();// yazdir metodunu kullan
+                        sonuc = true;// fiyatlar ve marka uyumlu olduğu için sonuç true
+
+                    }
+
+                }
+                if (!sonuc){ // eğer sonuc doğru değilse false sonuç eşit değildir
+                    System.out.println("İstenilen Fiyata GÖre Araç Bulunamadı");
+                }
+
+
+                }
+            else if (secim==6){
+                System.out.println("Sistemden Çıkış Yapıldı");
+            }
+
+
+            break; //// break ile döngüyü kırdım ve ===Araba Galerisi== Başlığı Çalışmıyor Artık
+          }
+
+        }
+
+
+
+    }
+
+

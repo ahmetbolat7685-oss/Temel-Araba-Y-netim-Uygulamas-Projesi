@@ -25,4 +25,5 @@ public class Araba { // araba adlı sınıf oluşturuldu
     }
 
 
+
 }
