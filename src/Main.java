@@ -14,7 +14,7 @@ public class Main {
         arabalar.add(new Araba(3, "Renault", "Clio", 2025, 205000));
         arabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 24000));
         arabalar.add(new Araba(5, "Renault", "Toros", 2024, 396));
-       // arabalar.add(new Araba(6, "Ford", "Foxus", 2021, 50000));// araba.add ile diziye nesne türeterek eklendi tekradan ArrayListe manuel olarak eklemeye gerek var mı
+        // arabalar.add(new Araba(6, "Ford", "Foxus", 2021, 50000));// araba.add ile diziye nesne türeterek eklendi tekradan ArrayListe manuel olarak eklemeye gerek var mı
 
         while (true) {// while başlangıç parantezi > döngü başlandı
 
@@ -103,8 +103,7 @@ public class Main {
                 arabalar.add(new Araba(id, marka, model, yil, fiyat)); // önceden oluşturduğum ArrayListe yeni bir araba nesnesi ekler
                 System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
-            }
-                else if (secim==5){
+            } else if (secim == 5) {
 
                 System.out.println("Fiyata Göre Ve Markaya Göre Arama Özellikleri Ekle");
 
@@ -118,32 +117,22 @@ public class Main {
 
                 boolean sonuc = false; // markanın ve fiayatının boolena bulundu tipini önce false yapıyoruz
 
-                for (Araba k: arabalar){ // foreach döngüsünde Araba classında arabalar dizisinde dönüp k değişkenine atıyor
-                    if (k.fiyat<= girilenFiyat && k.marka.equalsIgnoreCase(marka)){ // k dizisinde ki fiyat girilen fiyattan küçük yada eşşitse  marka bilgisinin büyük küçük harf karşılaştırmadan bilgisini eşitle
-                     k.yazdir();// yazdir metodunu kullan
+                for (Araba k : arabalar) { // foreach döngüsünde Araba classında arabalar dizisinde dönüp k değişkenine atıyor
+                    if (k.fiyat <= girilenFiyat && k.marka.equalsIgnoreCase(marka)) { // k dizisinde ki fiyat girilen fiyattan küçük yada eşşitse  marka bilgisinin büyük küçük harf karşılaştırmadan bilgisini eşitle
+                        k.yazdir();// yazdir metodunu kullan
                         sonuc = true;// fiyatlar ve marka uyumlu olduğu için sonuç true
-
                     }
-
                 }
-                if (!sonuc){ // eğer sonuc doğru değilse false sonuç eşit değildir
+                if (!sonuc) { // eğer sonuc doğru değilse false sonuç eşit değildir
                     System.out.println("İstenilen Fiyata GÖre Araç Bulunamadı");
                 }
 
-
-                }
-            else if (secim==6){
+            } else if (secim == 6) {
                 System.out.println("Sistemden Çıkış Yapıldı");
             }
-
-
             break; //// break ile döngüyü kırdım ve ===Araba Galerisi== Başlığı Çalışmıyor Artık
-          }
-
         }
-
-
-
     }
+}
 
 
