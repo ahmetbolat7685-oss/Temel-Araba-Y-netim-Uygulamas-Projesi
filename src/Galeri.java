@@ -55,6 +55,7 @@ public class Galeri {
                     System.out.println(araba1.getYil());
                     araba1.setFiyat(30000);
                     System.out.println(araba1.getFiyat());*/
+                    //System.out.println(1 +2 +3+4);
                     m.yazdir();
                 }
             }
