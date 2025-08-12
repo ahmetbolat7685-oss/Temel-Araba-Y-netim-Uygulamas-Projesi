@@ -43,7 +43,7 @@ public class Main {
             }// if bitiş
 
             // Fiyata GÖre Filitreleme
-            else if (secim == 2) {// değilse eğer secim 2 eşitse
+           else  if (secim == 2) {// değilse eğer secim 2 eşitse
 
                 System.out.print(" Fiyat Giriniz: "); // ekrana yazdır
 

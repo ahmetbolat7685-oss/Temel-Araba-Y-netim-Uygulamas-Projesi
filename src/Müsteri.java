@@ -12,4 +12,13 @@ public class Müsteri {
 
     }
 
+
+   public int getId() {
+        return id;
+   }
+
+   public void yazdira(){
+       System.out.println("İd"+id+"Ad"+ad+"Soyad"+soyad);
+   }
+
 }

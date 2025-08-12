@@ -6,7 +6,7 @@ public class Galeri {
 
     public static void main(String[] args) {
 
-        Araba araba1 = new Araba();
+        //Araba araba1 = new Araba();
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>();
 
@@ -20,9 +20,10 @@ public class Galeri {
         ArrayList<String> satisKayitlari = new ArrayList<>();
 
 
-       // Araba araba1 = new Araba(); // Araba Classı içerisinde Araba Constructerından nesne türettik get ve set ile değer okuduk ve atadık
 
-        Galeri galeri1 = new Galeri();
+        // Araba araba1 = new Araba(); // Araba Classı içerisinde Araba Constructerından nesne türettik get ve set ile değer okuduk ve atadık
+
+        // Galeri galeri1 = new Galeri();
 
 
         Scanner scanner = new Scanner(System.in);
@@ -42,26 +43,44 @@ public class Galeri {
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();
 
-            if (secim == 1) {
+            if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
                 for (Araba m : mevcutArabalar) {
-                    /*araba1.setId(1);
-                    System.out.println("Araba ID:" + araba1.getId());
-
-                    araba1.setMarka("Toyota");
-                    System.out.println(araba1.getMarka());
-                    araba1.setModel("Corolla");
-
-                    araba1.setYil(2020);
-                    System.out.println(araba1.getYil());
-                    araba1.setFiyat(30000);
-                    System.out.println(araba1.getFiyat());*/
-                    //System.out.println(1 +2 +3+4);
                     m.yazdir();
                 }
+            } else if (secim == 2) {
+
+                System.out.print("Satın almak istediğiniz araba ID:");
+                int id = scanner.nextInt();
+
+                scanner.nextLine();
+
+                System.out.print("Müşteri Adı:");
+                String müsteriAdi = scanner.nextLine();
+
+                System.out.print("Müşteri Soyadı:");
+                String müsteriSoyadi = scanner.nextLine();
+
+
+                boolean sonuc = false;
+
+                for (Araba k: mevcutArabalar){
+                    if (k.getId() == id){ // getId gelen id kullanıcın girdiği İd eşitse
+                        k.yazdir();
+                        sonuc = true;
+
+                        System.out.println("---Satış Gerçekleşti---");
+
+                    }
+                    else if (!sonuc){
+                        System.out.println("Satış gerçekleşmedi");
+                        break;
+                    }
+
+
+                }
+
+
             }
-
-
         }
-
     }
 }
