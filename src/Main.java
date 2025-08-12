@@ -22,6 +22,9 @@ public class Main {
 
             System.out.println("1. Tüm Arabaları Listele");
             System.out.println("2. Fiyata Göre Filtrele");
+            System.out.println("2. Fiyata Göre Filtrele");
+            System.out.println("2. Fiyata Göre Filtrele");
+            System.out.println("2. Fiyata Göre Filtrele");
             System.out.println("3. Markaya Göre Ara");
             System.out.println("4. Yeni Araba Ekle");
             System.out.println("5. Fiyata Göre Filtreleme Ve Markaya Göre Arama Özellikleri Ekleme");
