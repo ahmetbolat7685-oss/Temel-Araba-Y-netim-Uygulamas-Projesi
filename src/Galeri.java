@@ -6,6 +6,7 @@ public class Galeri {
 
     public static void main(String[] args) {
 
+        Araba araba1 = new Araba();
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>();
 
