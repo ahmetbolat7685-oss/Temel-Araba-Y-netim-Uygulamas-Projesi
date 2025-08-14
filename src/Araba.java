@@ -22,7 +22,26 @@ public class Araba { // araba adlı sınıf oluşturuldu
         return  id;
     }
 
+    public void setId() {
+        this.id = id;
+    }
 
+    public String getMarka() {
+        return marka;
+    }
+
+    public void setMarka() {
+        this.marka = marka;
+    }
+
+    public String getModel() {
+        return  model;
+
+    }
+
+    public void setModel() {
+        this.model = model;
+    }
 
     public void yazdir() {  // değişkenleri ekrana yazdırdık ve yazdir metodu ile de istediğimiz yerde yazdırabiliriz
 

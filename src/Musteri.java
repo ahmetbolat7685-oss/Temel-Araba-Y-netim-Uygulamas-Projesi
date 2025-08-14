@@ -13,10 +13,4 @@ public class Musteri {
     }
 
 
-   public int getId() {
-        return id;
-   }
-
-
-
 }

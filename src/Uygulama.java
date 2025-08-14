@@ -6,7 +6,7 @@ public class Uygulama {
 
     Scanner scanner = new Scanner(System.in);
 
-    public void Calistir() {
+      public void Calistir()  { // geriye değer döndürmeyen bir methot tanımlandı ÖNEMLİ NOT: Maini kaldırmamda ki sebeb bir projede birden fazla main metodu olamaz yönetemeyiz main metodu olan bir classa da methot tanımlanır public sayesinde her yerden erişim sağlanır
 
         ArrayList<Araba> arabalar = new ArrayList<>();// ArrayList oluşturdum
 
@@ -19,6 +19,7 @@ public class Uygulama {
 
         while (true) {// while başlangıç parantezi > döngü başlandı
 
+            boolean bulundu = false;
             System.out.println("====Araba Galerisi====");
 
             System.out.println("1. Tüm Arabaları Listele");
@@ -39,7 +40,7 @@ public class Uygulama {
                 for (Araba c : arabalar) { // foreach döngüsü kullanıldı (araba classın içerisinde ki arabalar dizisinde dönüp diziye erişim sağladım ve c atandı)
                     c.yazdir(); // c üzerinden yazdir metodu çalıştırıldı
                 }
-            }// if bitiş
+            }//
 
             // Fiyata GÖre Filitreleme
             else if (secim == 2) {// değilse eğer secim 2 eşitse
@@ -48,7 +49,7 @@ public class Uygulama {
 
                 double fiyat = scanner.nextDouble();// fiyat girilor
 
-                boolean bulundu = false; // boolean bulundu mu false
+//                boolean bulundu = false; // boolean bulundu mu false
 
                 for (Araba c : arabalar) {
 
@@ -66,8 +67,6 @@ public class Uygulama {
 
                 System.out.print("Markaya Göre Ara:");
                 String marka = scanner.nextLine();
-
-                boolean bulundu = false;
 
                 for (Araba d : arabalar) {// araba classın içinde arabalar dizisine döndük ve d değişkenine atadık
                     if (d.marka.equalsIgnoreCase(marka)) { // burada (d dizisinde ki marka ile girilen marka eşit mi diyede kontrol ediliyor)  equalsIgnoreCase :  İki Diziyi karşılaştırırken büyük küçük harf ayrımına takılmaz , ama equals kullanıldığında eşitlenen kelime bire bir aynı olmak zorunadadır
@@ -98,11 +97,8 @@ public class Uygulama {
                 System.out.print("Fiyatını Girini:");
                 double fiyat = scanner.nextDouble();
 
-                Araba araba2 = new Araba(id, marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
-
+           /*Burayı Araştır Ahmet*/ Araba araba2 = new Araba(id, marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
                 // Nesne türetilirken hem classa erişilir hemde coonstructr çalışır
-
-                arabalar.add(new Araba(id, marka, model, yil, fiyat)); // önceden oluşturduğum ArrayListe yeni bir araba nesnesi ekler
                 System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
             } else if (secim == 5) {
@@ -131,8 +127,10 @@ public class Uygulama {
 
             } else if (secim == 6) {
                 System.out.println("Sistemden Çıkış Yapıldı");
+                        bulundu = false;
+
             }
-            //// break ile döngüyü kırdım ve ===Araba Galerisi== Başlığı Çalışmıyor Artık
+break;
         }
     }
 
