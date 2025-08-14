@@ -1,10 +1,10 @@
-public class Müsteri {
+public class Musteri {
 
     int id;
     String ad;
     String soyad;
 
-    public Müsteri(int id, String ad, String soyad) {
+    public Musteri(int id, String ad, String soyad) {
 
         this.id = id;
         this.ad = ad;
@@ -17,8 +17,6 @@ public class Müsteri {
         return id;
    }
 
-   public void yazdira(){
-       System.out.println("İd"+id+"Ad"+ad+"Soyad"+soyad);
-   }
+
 
 }

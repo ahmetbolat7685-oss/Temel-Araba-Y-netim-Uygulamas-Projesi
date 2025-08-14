@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Uygulama {
 
-    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+
+    public void Calistir() {
 
         ArrayList<Araba> arabalar = new ArrayList<>();// ArrayList oluşturdum
 
@@ -22,13 +23,11 @@ public class Main {
 
             System.out.println("1. Tüm Arabaları Listele");
             System.out.println("2. Fiyata Göre Filtrele");
-            System.out.println("2. Fiyata Göre Filtrele");
-            System.out.println("2. Fiyata Göre Filtrele");
-            System.out.println("2. Fiyata Göre Filtrele");
             System.out.println("3. Markaya Göre Ara");
-            System.out.println("4. Yeni Araba Ekle");
-            System.out.println("5. Fiyata Göre Filtreleme Ve Markaya Göre Arama Özellikleri Ekleme");
-            System.out.println("6- Cıkış");
+            System.out.println("4. Yeni Bir Araba Ekleme");
+            System.out.println("5. Fiyata göre filtreleme ve markaya göre arama özellikleri ekle");
+            System.out.println("6. Çıkış");
+
 
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();// secime sayı yazabilmek için
@@ -43,7 +42,7 @@ public class Main {
             }// if bitiş
 
             // Fiyata GÖre Filitreleme
-           else  if (secim == 2) {// değilse eğer secim 2 eşitse
+            else if (secim == 2) {// değilse eğer secim 2 eşitse
 
                 System.out.print(" Fiyat Giriniz: "); // ekrana yazdır
 
@@ -108,7 +107,7 @@ public class Main {
 
             } else if (secim == 5) {
 
-                System.out.println("Fiyata Göre Ve Markaya Göre Arama Özellikleri Ekle");
+                System.out.println("Fiyata Göre Ve Markaya Göre Arama");
 
                 System.out.print("Fiyatı Giriniz:");// fiyat bilgisini alıyoruz
                 double girilenFiyat = scanner.nextInt();
@@ -133,9 +132,9 @@ public class Main {
             } else if (secim == 6) {
                 System.out.println("Sistemden Çıkış Yapıldı");
             }
-            break; //// break ile döngüyü kırdım ve ===Araba Galerisi== Başlığı Çalışmıyor Artık
+            //// break ile döngüyü kırdım ve ===Araba Galerisi== Başlığı Çalışmıyor Artık
         }
     }
+
+
 }
-
-
