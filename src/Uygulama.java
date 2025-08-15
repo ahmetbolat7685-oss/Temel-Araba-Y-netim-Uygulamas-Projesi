@@ -10,8 +10,8 @@ public class Uygulama {
 
         ArrayList<Araba> arabalar = new ArrayList<>();// ArrayList oluşturdum
 
-        arabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 200000)); // add = eklemek anlamına gelir
-        arabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 300000));
+        arabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 2000)); // add = eklemek anlamına gelir
+        arabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 3000));
         arabalar.add(new Araba(3, "Renault", "Clio", 2025, 205000));
         arabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 24000));
         arabalar.add(new Araba(5, "Renault", "Toros", 2024, 396));
