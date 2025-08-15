@@ -51,26 +51,31 @@ public class Galeri {
 
                 boolean sonuc = false;
 
-                for (int i=0; i<mevcutArabalar.size(); i++){
+                for (int i = 0; i < mevcutArabalar.size(); i++) {
 
-                        Araba k = mevcutArabalar.get(i); // get(i) mevcutarablar dizisinde for döngüsü döner get(i) ile i. ci elemanını döndürür ve k ye atar
-                        if (k.getId()== id){ // eğer getId ile == kullanıcının girdiği id eşitse
+                    Araba k = mevcutArabalar.get(i); // get(i) mevcutarablar dizisinde for döngüsü döner get(i) ile i. ci elemanını döndürür ve k ye atar
+                    if (k.getId() == id) { // eğer getId ile == kullanıcının girdiği id eşitse
 
-                            mevcutArabalar.remove(i); // remove(kaldır) demek mevcutarabalar dizisinde (i) indexsde ki diziyi kaldırdım
+                        mevcutArabalar.remove(i); // remove(kaldır) demek mevcutarabalar dizisinde (i) indexsde ki diziyi kaldırdım
 
-                            String kayit = "İD:" +k.id + " " + "Marka" + k.marka + " " + "Model:" + k.model + " "+ "Yil:" + k.yil + "  " + " Fiyat:" + k.fiyat;
+                        String kayit = "İD:" + k.id + " " + "Marka" + k.marka + " " + "Model:" + k.model + " " + "Yil:" + k.yil + "  " + " Fiyat:" + k.fiyat;
 
-                            satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
+                        satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
 
-                            System.out.println("Satış Gerçekleşti!");
-                            k.yazdir();
-                            sonuc = true;
-                        }
+                        System.out.println("Satış Gerçekleşti!");
+                        //k.yazdir();
+                        System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
+                        sonuc = true;
+                    }
                 }
-                        if (!sonuc){
-                            System.out.println("Satış Gerçekleşmedi");
-                        }
+                if (!sonuc) {
+                    System.out.println("Satış Gerçekleşmedi");
+                }
+            } else if (secim == 3) {
+
+                System.out.println(satisKayitlari);
             }
+            break;
         }// while bitiş
 
     }
