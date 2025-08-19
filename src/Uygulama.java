@@ -3,10 +3,9 @@ import java.util.Scanner;
 
 public class Uygulama {
 
-
     Scanner scanner = new Scanner(System.in);
 
-      public void Calistir()  { // geriye değer döndürmeyen bir methot tanımlandı ÖNEMLİ NOT: Maini kaldırmamda ki sebeb bir projede birden fazla main metodu olamaz yönetemeyiz main metodu olan bir classa da methot tanımlanır public sayesinde her yerden erişim sağlanır
+    public void Calistir() { // geriye değer döndürmeyen bir methot tanımlandı ÖNEMLİ NOT: Maini kaldırmamda ki sebeb bir projede birden fazla main metodu olamaz yönetemeyiz main metodu olan bir classa da methot tanımlanır public sayesinde her yerden erişim sağlanır
 
         ArrayList<Araba> arabalar = new ArrayList<>();// ArrayList oluşturdum
 
@@ -29,11 +28,9 @@ public class Uygulama {
             System.out.println("5. Fiyata göre filtreleme ve markaya göre arama özellikleri ekle");
             System.out.println("6. Çıkış");
 
-
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();// secime sayı yazabilmek için
             scanner.nextLine();// Eneter boşluk hatası
-
 
             // Tüm Arabalar Listelendi
             if (secim == 1) {
@@ -63,7 +60,6 @@ public class Uygulama {
                     System.out.println("Bu Fiyata Uygun araç  bulunamadı");
                 }
             } else if (secim == 3) {// Markaya Göre Ara
-
 
                 System.out.print("Markaya Göre Ara:");
                 String marka = scanner.nextLine();
@@ -97,7 +93,8 @@ public class Uygulama {
                 System.out.print("Fiyatını Girini:");
                 double fiyat = scanner.nextDouble();
 
-           /*Burayı Araştır Ahmet*/ Araba araba2 = new Araba(id, marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
+                /*Burayı Araştır Ahmet*/
+                Araba araba2 = new Araba(id, marka, model, yil, fiyat); // <Araba constructerında tüm değişkenler nesne oluşturulan araba2 atanıyor>Constructerdan clasdan nesne türetirken sonuna süslü { } konmaz sadece ; konur
                 // Nesne türetilirken hem classa erişilir hemde coonstructr çalışır
                 System.out.println("ARABA BAŞARILI BİR ŞEKİLDE EKLENMİŞTİR");
 
@@ -127,12 +124,9 @@ public class Uygulama {
 
             } else if (secim == 6) {
                 System.out.println("Sistemden Çıkış Yapıldı");
-                        bulundu = false;
-
+                bulundu = false;
             }
-break;
+            break;
         }
     }
-
-
 }

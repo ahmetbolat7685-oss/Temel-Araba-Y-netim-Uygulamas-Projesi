@@ -21,11 +21,9 @@ public class Araba { // araba adlı sınıf oluşturuldu
     public int getId(){ //
         return  id;
     }
-
     public void setId() {
         this.id = id;
     }
-
     public String getMarka() {
         return marka;
     }
@@ -40,6 +38,7 @@ public class Araba { // araba adlı sınıf oluşturuldu
     }
 
     public void setModel() {
+
         this.model = model;
     }
 
@@ -48,7 +47,4 @@ public class Araba { // araba adlı sınıf oluşturuldu
         System.out.println("[İd:]" + id + " " + "Marka:" + marka + " " + "Model:" + model + " " + "YİL:" + yil + " " + "Fiyat:" +
                 fiyat); // geriye değer döndürmeyen bir methot tanımlayarak değişkenlerimi yazdırdım
     }
-
-
-
 }
