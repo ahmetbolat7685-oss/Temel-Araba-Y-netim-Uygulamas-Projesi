@@ -75,7 +75,11 @@ public class Galeri {
 
                 System.out.println(satisKayitlari);
             }
-            break;
+
+            else if (secim==4){
+                System.out.println("Sistem Çıkış Yapıldı");
+                break;
+            }
         }// while bitiş
 
     }
