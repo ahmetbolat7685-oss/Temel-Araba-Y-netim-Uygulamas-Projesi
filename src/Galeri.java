@@ -4,8 +4,8 @@ import java.util.Scanner;
 public class Galeri {
     public static void main(String[] args) {
 
-        Uygulama uygulama1 = new Uygulama();// Uygulama classında main kaldırıldı Galeri classı içerisinde nesne türetildi uygulama sınıfında ki kodları çalıştrırabilmek için çaliştir geriye değer döndürmeyen bir methot yazıldı ve calistir ile ekrana yazdırılıyor
-        uygulama1.Calistir();
+        // Uygulama uygulama1 = new Uygulama();// Uygulama classında main kaldırıldı Galeri classı içerisinde nesne türetildi uygulama sınıfında ki kodları çalıştrırabilmek için çaliştir geriye değer döndürmeyen bir methot yazıldı ve calistir ile ekrana yazdırılıyor
+        //Uygulama.Calistir(uygulama1);
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>();
 
@@ -19,25 +19,62 @@ public class Galeri {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
+
+            boolean sonuc = false;
+
             System.out.println("===Galeri Yönetim Sistemi===");
 
-            System.out.print("1- Arabaları Listele");
-            System.out.println();
-            System.out.print("2-Arabayı Satın Al");
-            System.out.println();
-            System.out.print("3-Satışları Görüntele");
-            System.out.println();
-            System.out.print("4-Çıkış");
-            System.out.println();
+            System.out.println("1- Arabaları Listele");
+
+            System.out.println("2-Fiyata Göre Filtrele");
+
+            System.out.println("3-Markaya Göre Ara");
+
+            System.out.println("4-Arabayı Satın Al");
+
+            System.out.println("5-Satışları GÖrüntüle");
+
+            System.out.println("6-Çıkış");
+
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();
 
+            scanner.nextLine();
             if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
                 for (Araba m : mevcutArabalar) {
                     m.yazdir();
                 }
-            } else if (secim == 2) {
+            } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
+                System.out.print("Fiyat Giriniz:");
+                double fiyat = scanner.nextDouble();
+
+                for (Araba h : mevcutArabalar) {
+                    if (h.fiyat <= fiyat) {
+                        sonuc = true;
+                        h.yazdir();
+                    }
+                }
+                if (!sonuc) {
+                    System.out.println("Bu Fiyata Uygun Araç Bulunamadı");
+                }
+
+            } else if (secim == 3) {// Markaya Göre Aranıyor
+
+                System.out.print("Markaya Göre Ara:");
+                String marka = scanner.nextLine();
+
+                for (Araba d : mevcutArabalar) {// araba classın içinde arabalar dizisine döndük ve d değişkenine atadık
+                    if (d.marka.equalsIgnoreCase(marka)) { // burada (d dizisinde ki marka ile girilen marka eşit mi diyede kontrol ediliyor)  equalsIgnoreCase :  İki Diziyi karşılaştırırken büyük küçük harf ayrımına takılmaz , ama equals kullanıldığında eşitlenen kelime bire bir aynı olmak zorunadadır
+                        d.yazdir(); // d üzerinde yazdir metodum çalışıyor
+                        sonuc = true;// marka
+                    }
+                }
+                if (!sonuc) { // marka ismi yanlış girildiyse de bulundu eşit değildir
+                    System.out.println("Lütfen  Aracın Marka Bilgisini Doğru Giriniz");
+                }
+            } else if (secim == 4)// Arabayı Satın Al
+            {
                 System.out.print("Satın almak istediğiniz araba ID:");
                 int id = scanner.nextInt();
 
@@ -49,7 +86,6 @@ public class Galeri {
                 System.out.print("Müşteri Soyadı:");
                 String musteriSoyadi = scanner.nextLine();
 
-                boolean sonuc = false;
 
                 for (int i = 0; i < mevcutArabalar.size(); i++) {
 
@@ -63,24 +99,24 @@ public class Galeri {
                         satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
 
                         System.out.println("Satış Gerçekleşti!");
-                        //k.yazdir();
-                        System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
+                       System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
                         sonuc = true;
                     }
                 }
                 if (!sonuc) {
-                    System.out.println("Satış Gerçekleşmedi");
+                    System.out.println("Satış Gerçekleşmedi"); // MevcutArabalar listesindeki id ler birden fazla satışı yapılacağı zaman Satış Gerçekleşmeyecek sonuca eşit değil çnkü
+
                 }
-            } else if (secim == 3) {
-
+            } else if (secim == 5) {
                 System.out.println(satisKayitlari);
-            }
-
-            else if (secim==4){
+            } else if (secim == 6) {
                 System.out.println("Sistem Çıkış Yapıldı");
+                sonuc = false;
                 break;
             }
+
         }// while bitiş
 
     }
+
 }

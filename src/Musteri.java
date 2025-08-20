@@ -12,12 +12,14 @@ public class Musteri {
     }
 
     public int getId() {
-        return  id;
+        return id;
     }
+
     public void setId() {
         this.id = id;
 
     }
+
     public String getAd() {
         return ad;
     }
@@ -27,7 +29,7 @@ public class Musteri {
 
     }
 
-    public String getSoyad(){
+    public String getSoyad() {
         return soyad;
     }
 

@@ -18,12 +18,14 @@ public class Araba { // araba adlı sınıf oluşturuldu
 
     }
 
-    public int getId(){ //
-        return  id;
+    public int getId() { //
+        return id;
     }
+
     public void setId() {
         this.id = id;
     }
+
     public String getMarka() {
         return marka;
     }
@@ -33,7 +35,7 @@ public class Araba { // araba adlı sınıf oluşturuldu
     }
 
     public String getModel() {
-        return  model;
+        return model;
 
     }
 
