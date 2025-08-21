@@ -30,11 +30,14 @@ public class Galeri {
 
             System.out.println("3-Markaya Göre Ara");
 
-            System.out.println("4-Arabayı Satın Al");
+            System.out.println("4-Yeni Bir Araba Ekleme");
 
-            System.out.println("5-Satışları GÖrüntüle");
 
-            System.out.println("6-Çıkış");
+            System.out.println("6-Arabayı Satın Al");
+
+            System.out.println("7-Satışları GÖrüntüle");
+
+            System.out.println("8-Çıkış");
 
             System.out.print("Seçiminizi Giriniz:");
             int secim = scanner.nextInt();
@@ -99,7 +102,7 @@ public class Galeri {
                         satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
 
                         System.out.println("Satış Gerçekleşti!");
-                       System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
+                        System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
                         sonuc = true;
                     }
                 }
@@ -107,8 +110,11 @@ public class Galeri {
                     System.out.println("Satış Gerçekleşmedi"); // MevcutArabalar listesindeki id ler birden fazla satışı yapılacağı zaman Satış Gerçekleşmeyecek sonuca eşit değil çnkü
 
                 }
-            } else if (secim == 5) {
-                System.out.println(satisKayitlari);
+            } else if (secim == 5) { //  satiskayitlari string olduğu için string tipinde diziyi saklıyor
+                for (String s : satisKayitlari) {
+                    System.out.println(s);
+                }
+
             } else if (secim == 6) {
                 System.out.println("Sistem Çıkış Yapıldı");
                 sonuc = false;
