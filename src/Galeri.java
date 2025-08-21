@@ -108,15 +108,15 @@ public class Galeri {
                 }
                 if (!sonuc) {
                     System.out.println("Satış Gerçekleşmedi"); // MevcutArabalar listesindeki id ler birden fazla satışı yapılacağı zaman Satış Gerçekleşmeyecek sonuca eşit değil çnkü
-
                 }
+
             } else if (secim == 5) { //  satiskayitlari string olduğu için string tipinde diziyi saklıyor
                 for (String s : satisKayitlari) {
                     System.out.println(s);
                 }
 
             } else if (secim == 6) {
-                System.out.println("Sistem Çıkış Yapıldı");
+                System.out.println("Sistemden Çıkış Yapıldı");
                 sonuc = false;
                 break;
             }
