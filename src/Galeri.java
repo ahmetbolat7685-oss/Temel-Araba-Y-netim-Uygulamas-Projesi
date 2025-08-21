@@ -9,11 +9,11 @@ public class Galeri {
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
-        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 200000)); // add = eklemek anlamına gelir
-        mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 3000000));
-        mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 2050000));
-        mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 240000));
-        mevcutArabalar.add(new Araba(5, "Renault", "Toros", 2024, 390600));
+        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
+        mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
+        mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 40000));
+        mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 50000));
+        mevcutArabalar.add(new Araba(5, "Renault", "Toros", 2024, 60000));
 
         ArrayList<String> satisKayitlari = new ArrayList<>(); // String tipinde tutan ve değerleri satisKayitlarına atanan bir String ArrayList dizisi
 
@@ -24,13 +24,15 @@ public class Galeri {
 
             System.out.println("===Galeri Yönetim Sistemi===");
 
-            System.out.println("1- Arabaları Listele");
+            System.out.println("1-Tüm Arabaları Listele");
 
             System.out.println("2-Fiyata Göre Filtrele");
 
             System.out.println("3-Markaya Göre Ara");
 
-            System.out.println("4-Yeni Bir Araba Ekleme");
+            System.out.println("4-Yeni Bir Arabaya Ekleme:");
+
+            System.out.println("5-Fiyata Göre Filtreleme Ve Markaya Göre Arama");
 
             System.out.println("6-Arabayı Satın Al");
 
@@ -53,7 +55,7 @@ public class Galeri {
 
                 for (Araba h : mevcutArabalar) {
                     if (h.fiyat <= fiyat) {
-                        sonuc = true;//
+                        sonuc = true;
                         h.yazdir();
                     }
                 }
@@ -75,7 +77,53 @@ public class Galeri {
                 if (!sonuc) { // marka ismi yanlış girildiyse de bulundu eşit değildir
                     System.out.println("Lütfen  Aracın Marka Bilgisini Doğru Giriniz");
                 }
-            } else if (secim == 4)// Arabayı Satın Al
+            } else if (secim == 4) {
+
+                System.out.println("Eklemek İstediğiniz Arabanın Bilgilerini Giriniz");
+
+                System.out.print("İd giriniz:");
+                int id = scanner.nextInt();
+
+                scanner.nextLine();
+
+                System.out.print("Marka Giriniz:");
+                String marka = scanner.nextLine();
+
+                System.out.print("Marka Giriniz:");
+                String model = scanner.nextLine();
+
+                System.out.print("Yıl giriniz:");
+                int yil = scanner.nextInt();
+
+                System.out.print("Fiyatı Giriniz:");
+                double fiyat = scanner.nextDouble();
+
+                Araba araba1 = new Araba(id, marka, model, yil, fiyat);
+
+                System.out.println("Araba Başarılı Bİr Şekilde Eklenmiştir");
+                System.out.println(id + " " + marka + " " + model + " " + yil + " " + fiyat);
+            } else if (secim == 5) {
+
+                System.out.print("Fiyat Giriniz:");
+                double fiyat = scanner.nextDouble();
+
+                scanner.nextLine();
+
+                System.out.print("Marka Bilgisini Giriniz:");
+                String marka = scanner.nextLine();
+
+                for (Araba x : mevcutArabalar) {
+                    if (x.fiyat <= fiyat && x.marka.equals(marka)) {
+                        sonuc = true;
+                        x.yazdir();
+
+                    }
+                }
+                if (!sonuc) {
+                    System.out.println("Lütfen Aracın Fiyatını ve Marka Bilgilerini Doğru Giriniz!!  ");
+                }
+
+            } else if (secim == 6)// Arabayı Satın Al
             {
                 System.out.print("Satın almak istediğiniz araba ID:");
                 int id = scanner.nextInt();
@@ -88,7 +136,7 @@ public class Galeri {
                 System.out.print("Müşteri Soyadı:");
                 String musteriSoyadi = scanner.nextLine();
 
-                Musteri musteri = new Musteri(id, musteriAdi , musteriSoyadi); // müsteri sınıfından nesne türetildi getter setter kullanılmak için
+                Musteri musteri = new Musteri(id, musteriAdi, musteriSoyadi); // müsteri sınıfından nesne türetildi getter setter kullanılmak için
 
                 for (int i = 0; i < mevcutArabalar.size(); i++) {
 
@@ -97,7 +145,7 @@ public class Galeri {
 
                         mevcutArabalar.remove(i); // remove(kaldır) demek mevcutarabalar dizisinde (i) indexsde ki diziyi kaldırdım
 
-                        String kayit = musteri.getAd() + " "+ musteri.getSoyad() +" " + k.marka + " " +  k.model + " " + k.yil + "  " + k.fiyat+"TL";
+                        String kayit = musteri.getAd() + " " + musteri.getSoyad() + " " + k.marka + " " + k.model + " " + k.yil + "  " + k.fiyat + "TL";
 
                         satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
 
@@ -111,20 +159,16 @@ public class Galeri {
                     System.out.println("Satış Gerçekleşmedi"); // MevcutArabalar listesindeki id ler birden fazla satışı yapılacağı zaman Satış Gerçekleşmeyecek sonuca eşit değil çnkü
                 }
 
-            } else if (secim == 5) { //  satiskayitlari string olduğu için string tipinde diziyi saklıyor
+            } else if (secim == 7) { //  satiskayitlari string olduğu için string tipinde diziyi saklıyor
+                System.out.println("----SATIŞLAR----");
                 for (String s : satisKayitlari) {
-                    System.out.println("----SATIŞLAR----");
                     System.out.println(s);
                 }
-
-            } else if (secim == 6) {
+            } else if (secim == 8) {
                 System.out.println("Sistemden Çıkış Yapıldı");
                 sonuc = false;
                 break;
             }
-
         }// while bitiş
-
     }
-
 }
