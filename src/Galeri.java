@@ -7,20 +7,20 @@ public class Galeri {
         // Uygulama uygulama1 = new Uygulama();// Uygulama classında main kaldırıldı Galeri classı içerisinde nesne türetildi uygulama sınıfında ki kodları çalıştrırabilmek için çaliştir geriye değer döndürmeyen bir methot yazıldı ve calistir ile ekrana yazdırılıyor
         //Uygulama.Calistir(uygulama1);
 
-        ArrayList<Araba> mevcutArabalar = new ArrayList<>();
+        ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
-        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 2000)); // add = eklemek anlamına gelir
-        mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 3000));
-        mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 2050));
-        mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 2400));
-        mevcutArabalar.add(new Araba(5, "Renault", "Toros", 2024, 3906));
+        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 200000)); // add = eklemek anlamına gelir
+        mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 3000000));
+        mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 2050000));
+        mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 240000));
+        mevcutArabalar.add(new Araba(5, "Renault", "Toros", 2024, 390600));
 
-        ArrayList<String> satisKayitlari = new ArrayList<>();
+        ArrayList<String> satisKayitlari = new ArrayList<>(); // String tipinde tutan ve değerleri satisKayitlarına atanan bir String ArrayList dizisi
 
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+        while (true) { // sonsuz döngü başlatıldı
 
-            boolean sonuc = false;
+            boolean sonuc = false; // ilk önce sonuc başlatılmadığı false yapıyoruz
 
             System.out.println("===Galeri Yönetim Sistemi===");
 
@@ -32,7 +32,6 @@ public class Galeri {
 
             System.out.println("4-Yeni Bir Araba Ekleme");
 
-
             System.out.println("6-Arabayı Satın Al");
 
             System.out.println("7-Satışları GÖrüntüle");
@@ -40,12 +39,12 @@ public class Galeri {
             System.out.println("8-Çıkış");
 
             System.out.print("Seçiminizi Giriniz:");
-            int secim = scanner.nextInt();
+            int secim = scanner.nextInt(); // seçimi giriyoruz
 
-            scanner.nextLine();
+            scanner.nextLine();// Enter hatası
             if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
-                for (Araba m : mevcutArabalar) {
-                    m.yazdir();
+                for (Araba m : mevcutArabalar) { //Araba classı içinde mevcutArabalar dizisinde dön ve m ata
+                    m.yazdir(); // m ile de Araba sınıfında yazdir metodu çallışıyor ve id marka model yil fiyat bilgileri ekrana yazdırılıyor
                 }
             } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
@@ -54,7 +53,7 @@ public class Galeri {
 
                 for (Araba h : mevcutArabalar) {
                     if (h.fiyat <= fiyat) {
-                        sonuc = true;
+                        sonuc = true;//
                         h.yazdir();
                     }
                 }
@@ -89,6 +88,7 @@ public class Galeri {
                 System.out.print("Müşteri Soyadı:");
                 String musteriSoyadi = scanner.nextLine();
 
+                Musteri musteri = new Musteri(id, musteriAdi , musteriSoyadi); // müsteri sınıfından nesne türetildi getter setter kullanılmak için
 
                 for (int i = 0; i < mevcutArabalar.size(); i++) {
 
@@ -97,11 +97,12 @@ public class Galeri {
 
                         mevcutArabalar.remove(i); // remove(kaldır) demek mevcutarabalar dizisinde (i) indexsde ki diziyi kaldırdım
 
-                        String kayit = "İD:" + k.id + " " + "Marka" + k.marka + " " + "Model:" + k.model + " " + "Yil:" + k.yil + "  " + " Fiyat:" + k.fiyat;
+                        String kayit = musteri.getAd() + " "+ musteri.getSoyad() +" " + k.marka + " " +  k.model + " " + k.yil + "  " + k.fiyat+"TL";
 
                         satisKayitlari.add(kayit); // kayit değişkene atanan id marka model yil fiyat bilgileri satiskayitlari.addd ekleniyor ArrayListine yani
 
                         System.out.println("Satış Gerçekleşti!");
+
                         System.out.println(musteriAdi + " " + musteriSoyadi + " " + k.marka + " " + k.model + " " + k.yil + " " + k.fiyat);
                         sonuc = true;
                     }
@@ -112,6 +113,7 @@ public class Galeri {
 
             } else if (secim == 5) { //  satiskayitlari string olduğu için string tipinde diziyi saklıyor
                 for (String s : satisKayitlari) {
+                    System.out.println("----SATIŞLAR----");
                     System.out.println(s);
                 }
 

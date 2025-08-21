@@ -46,7 +46,7 @@ public class Araba { // araba adlı sınıf oluşturuldu
 
     public void yazdir() {  // değişkenleri ekrana yazdırdık ve yazdir metodu ile de istediğimiz yerde yazdırabiliriz
 
-        System.out.println("[İd:]" + id + " " + "Marka:" + marka + " " + "Model:" + model + " " + "YİL:" + yil + " " + "Fiyat:" +
+        System.out.println( "[İd:]" + id + " " + "Marka:" + marka + " " + "Model:" + model + " " + "YİL:" + yil + " " + "Fiyat:" +
                 fiyat); // geriye değer döndürmeyen bir methot tanımlayarak değişkenlerimi yazdırdım
     }
 }
