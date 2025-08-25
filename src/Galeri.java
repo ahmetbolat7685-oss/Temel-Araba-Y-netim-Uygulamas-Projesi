@@ -3,10 +3,7 @@ import java.util.Scanner;
 
 public class Galeri {
     public static void main(String[] args) {
-
-        // Uygulama uygulama1 = new Uygulama();// Uygulama classında main kaldırıldı Galeri classı içerisinde nesne türetildi uygulama sınıfında ki kodları çalıştrırabilmek için çaliştir geriye değer döndürmeyen bir methot yazıldı ve calistir ile ekrana yazdırılıyor
-        //Uygulama.Calistir(uygulama1);
-
+// İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
@@ -30,7 +27,7 @@ public class Galeri {
 
             System.out.println("3-Markaya Göre Ara");
 
-            System.out.println("4-Yeni Bir Arabaya Ekleme:");
+            System.out.println("4-Yeni Bir Arabaya Ekleme");
 
             System.out.println("5-Fiyata Göre Filtreleme Ve Markaya Göre Arama");
 
@@ -44,6 +41,7 @@ public class Galeri {
             int secim = scanner.nextInt(); // seçimi giriyoruz
 
             scanner.nextLine();// Enter hatası
+
             if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
                 for (Araba m : mevcutArabalar) { //Araba classı içinde mevcutArabalar dizisinde dön ve m ata
                     m.yazdir(); // m ile de Araba sınıfında yazdir metodu çallışıyor ve id marka model yil fiyat bilgileri ekrana yazdırılıyor
@@ -116,13 +114,11 @@ public class Galeri {
                     if (x.fiyat <= fiyat && x.marka.equals(marka)) {
                         sonuc = true;
                         x.yazdir();
-
                     }
                 }
                 if (!sonuc) {
                     System.out.println("Lütfen Aracın Fiyatını ve Marka Bilgilerini Doğru Giriniz!!  ");
                 }
-
             } else if (secim == 6)// Arabayı Satın Al
             {
                 System.out.print("Satın almak istediğiniz araba ID:");
