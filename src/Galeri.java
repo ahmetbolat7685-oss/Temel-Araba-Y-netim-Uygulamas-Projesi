@@ -11,9 +11,9 @@ public class Galeri {
     public static void main(String[] args) throws Exception {
 // İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
 
-        Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();
-
+       Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();;
         System.out.println(doc.head());
+
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
@@ -33,6 +33,7 @@ public class Galeri {
             System.out.println("===Galeri Yönetim Sistemi===");
 
             System.out.println("1-Tüm Arabaları Listele");
+
 
             System.out.println("2-Fiyata Göre Filtrele");
 
