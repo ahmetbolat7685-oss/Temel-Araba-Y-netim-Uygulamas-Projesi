@@ -1,12 +1,19 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 public class Galeri {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 // İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
 
-        String url = "https://www.arabam.com/ikinci-el";
-        System.out.println(url);
+        Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();
+
+        System.out.println(doc.head());
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
