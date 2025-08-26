@@ -4,6 +4,10 @@ import java.util.Scanner;
 public class Galeri {
     public static void main(String[] args) {
 // İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
+
+        String url = "https://www.arabam.com/ikinci-el";
+        System.out.println(url);
+
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
