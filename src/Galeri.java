@@ -11,9 +11,11 @@ public class Galeri {
     public static void main(String[] args) throws Exception {
 // İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
 
-       Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();;
+     Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();;
         System.out.println(doc.head());
 
+        Elements aracBasligi = doc.select("link-overlay");
+        System.out.println(doc.body());
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
@@ -57,6 +59,7 @@ public class Galeri {
             if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
                 for (Araba m : mevcutArabalar) { //Araba classı içinde mevcutArabalar dizisinde dön ve m ata
                     m.yazdir(); // m ile de Araba sınıfında yazdir metodu çallışıyor ve id marka model yil fiyat bilgileri ekrana yazdırılıyor
+
                 }
             } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
