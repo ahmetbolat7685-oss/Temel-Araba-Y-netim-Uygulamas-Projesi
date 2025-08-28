@@ -12,10 +12,14 @@ public class Galeri {
 // İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
 
      Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();;
-        System.out.println(doc.head());
 
-        Elements aracBasligi = doc.select("link-overlay");
-        System.out.println(doc.body());
+     Elements body = doc.select("link-overlay");
+        System.out.println(body.select("tr").size());
+
+for (Element e : body.select("tr"))
+{
+    e.select("td class=pr");
+}
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
