@@ -2,6 +2,7 @@
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.SplittableRandom;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -17,7 +18,7 @@ public class Galeri {
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
-       mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
+        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
         mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 40000));
         mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 50000));
@@ -55,27 +56,18 @@ public class Galeri {
             scanner.nextLine();// Enter hatası
 
 
-            if ( secim==1){
+            if (secim == 1) {
 
-                for (Araba h: mevcutArabalar){
+                ArrayList<String> arabaLink = new ArrayList<>();
 
-                    ArrayList<String> ilanBaslik = new ArrayList<>();
-                    Elements sayfa = doc.body().select(".link-overlay");
+                Elements elements = doc.body().select("a[href].link-overlay");
 
-                    for (Element element : sayfa){
-                        ilanBaslik.add(element.absUrl("href"));
-                    }
-
-                    for (String link :ilanBaslik){
-                        System.out.println(link);
-                    }
+                for (Element  element : elements){
+                        arabaLink.add(element.absUrl("href"));
                 }
 
 
-            }
-
-
-            else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
+            } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
                 System.out.print("Fiyat Giriniz:");
                 double fiyat = scanner.nextDouble();
