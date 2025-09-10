@@ -1,4 +1,5 @@
 
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -7,23 +8,16 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+
 public class Galeri {
     public static void main(String[] args) throws Exception {
-// İnteliji İdea da kodları CTRL + ALT+ L tuşuna bastığında kodlar otomatik olarak düzenlenecektir
 
-     Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();;
+        Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();
 
-     Elements body = doc.select("link-overlay");
-        System.out.println(body.select("tr").size());
-
-for (Element e : body.select("tr"))
-{
-    e.select("td class=pr");
-}
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
 
-        mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
+       mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
         mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 40000));
         mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 50000));
@@ -60,12 +54,28 @@ for (Element e : body.select("tr"))
 
             scanner.nextLine();// Enter hatası
 
-            if (secim == 1) { // Tüm Arabalar tekrardan bir dizi oluşturularak listelendi
-                for (Araba m : mevcutArabalar) { //Araba classı içinde mevcutArabalar dizisinde dön ve m ata
-                    m.yazdir(); // m ile de Araba sınıfında yazdir metodu çallışıyor ve id marka model yil fiyat bilgileri ekrana yazdırılıyor
 
+            if ( secim==1){
+
+                for (Araba h: mevcutArabalar){
+
+                    ArrayList<String> ilanBaslik = new ArrayList<>();
+                    Elements sayfa = doc.body().select(".link-overlay");
+
+                    for (Element element : sayfa){
+                        ilanBaslik.add(element.absUrl("href"));
+                    }
+
+                    for (String link :ilanBaslik){
+                        System.out.println(link);
+                    }
                 }
-            } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
+
+
+            }
+
+
+            else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
                 System.out.print("Fiyat Giriniz:");
                 double fiyat = scanner.nextDouble();
