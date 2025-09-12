@@ -77,10 +77,10 @@ public class Galeri {
                     }
 
                 }
-
-                for (String link : arabLink){
-                    System.out.println(link);
+                for (int i =0; i< arabLink.size();i++){
+                    System.out.println(arabLink.get(i));
                 }
+
                 System.out.println(arabLink.size());
             } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
