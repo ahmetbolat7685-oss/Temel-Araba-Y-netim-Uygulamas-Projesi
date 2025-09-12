@@ -12,7 +12,6 @@ import org.jsoup.select.Elements;
 public class Galeri {
     public static void main(String[] args) throws Exception {
 
-        Document doc = Jsoup.connect("https://www.arabam.com/ikinci-el").get();
 
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
@@ -34,7 +33,6 @@ public class Galeri {
 
             System.out.println("1-Tüm Arabaları Listele");
 
-
             System.out.println("2-Fiyata Göre Filtrele");
 
             System.out.println("3-Markaya Göre Ara");
@@ -53,35 +51,31 @@ public class Galeri {
             int secim = scanner.nextInt(); // seçimi giriyoruz
 
             scanner.nextLine();// Enter hatası
-
-
             if (secim == 1) {
+                 ArrayList<String> arabaLink = new ArrayList<>(); // arabaLinkleri adlı bir arrayList oluşturdum
 
+                for(int i =0; i <=20; i++){ // başlangıçta ilk 0 dan 20 kadar olan bir for döngüsü oluşturdum
 
-                ArrayList<String> arabLink = new ArrayList<>();
-
-                for(int i =0; i <=20; i++){
-
-                    String url = "https://www.arabam.com/ikinci-el";
-                    if (i> 1){
-                        url +="?page" + i;
+                    String url = "https://www.arabam.com/ikinci-el";// String tipinde linkim 20 kere dönüyor
+                    if (i> 1){// for da ki 0 1 den büyükse url ?page girip sayfa atlıyor
+                        url +="?page=" + i; // hangi sayfa numarası olduğunu belirtir ?page
                     }
+                    Document doc = Jsoup.connect(url).get();// kullandığımız url Jsoup.connet ile get  html sayfasında ki linke gidildi documente doca atıldı
 
-                    Document document = Jsoup.connect(url).get();
+                    Elements elements = doc.body().select("a[href].link-overlay");// Elements ile  linkte genel bir elentsleri alıyoruz ve linkin selectorünü alıyoruz
 
-                    Elements elements = doc.body().select("a[href].link-overlay");
-
-                    for (Element element : elements){
-                        String link = element.absUrl("href");
-                        arabLink.add(link);
+                    for (Element element : elements){// Element ile linkin selector yapısında dönülüyor ve
+                        String link = element.absUrl("href");// elements linkinde dönüldü ve linkin uzunluğunu hepsini alıd absUrl ile
+                        if (!arabaLink.contains(link)){ // eğer arabalink de link olarak yazılan href" linki var mı yoksa
+                            arabaLink.add(link); // linki arabaLink arrayList ekle
+                        }
                     }
-
                 }
-                for (int i =0; i< arabLink.size();i++){
-                    System.out.println(arabLink.get(i));
+                for (int i =0; i< arabaLink.size();i++){ // arabalink arrayListeden dön yani Linklerde dön
+                    System.out.println(arabaLink.get(i));// Linkin i. ci linkini ekrana yazdır
                 }
+                System.out.println(arabaLink.size());// arabalinkin uzunluğunu al yani linklerin sizenı al
 
-                System.out.println(arabLink.size());
             } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
                 System.out.print("Fiyat Giriniz:");
