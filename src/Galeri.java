@@ -1,13 +1,12 @@
 
-import java.net.http.HttpResponse;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.SplittableRandom;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
 
 
 public class Galeri {
@@ -58,15 +57,31 @@ public class Galeri {
 
             if (secim == 1) {
 
-                ArrayList<String> arabaLink = new ArrayList<>();
 
-                Elements elements = doc.body().select("a[href].link-overlay");
+                ArrayList<String> arabLink = new ArrayList<>();
 
-                for (Element  element : elements){
-                        arabaLink.add(element.absUrl("href"));
+                for(int i =0; i <=20; i++){
+
+                    String url = "https://www.arabam.com/ikinci-el";
+                    if (i> 1){
+                        url +="?page" + i;
+                    }
+
+                    Document document = Jsoup.connect(url).get();
+
+                    Elements elements = doc.body().select("a[href].link-overlay");
+
+                    for (Element element : elements){
+                        String link = element.absUrl("href");
+                        arabLink.add(link);
+                    }
+
                 }
 
-
+                for (String link : arabLink){
+                    System.out.println(link);
+                }
+                System.out.println(arabLink.size());
             } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
 
                 System.out.print("Fiyat Giriniz:");
