@@ -79,7 +79,7 @@ public class Galeri {
                 for (int i =0; i< arabaLink.size();i++){ // arabalink arrayListeden dön yani Linklerde dön
                     System.out.println(arabaLink.get(i));// Linkin i. ci linkini ekrana yazdır
                 }
-                System.out.println(arabaLink.size());// arabalinkin uzunluğunu al yani linklerin sizenı al
+            // arabalinkin uzunluğunu al yani linklerin sizenı al
 
                 for (String ilanMarka : arabaLink){// arabalinklerin dizisinde dönüldü ve ilanMarkaya atandı
 
@@ -102,11 +102,11 @@ public class Galeri {
                             System.out.println("Model: " + element2.text() + " Link: " + ilanMarka);
                         }
                     }
-                    System.out.println(arabaMarka.size());
 
-                    System.out.println(arabaModel.size());
                 }
-
+                System.out.println("Araba Linkleri"+arabaLink.size());
+                System.out.println("Araba Markaları"+arabaMarka.size());
+                System.out.println("Araba Modelleri"+arabaModel.size());
 
             }
 
