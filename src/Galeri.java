@@ -91,7 +91,7 @@ public class Galeri {
                         Element element1 = element.selectFirst("div.property-key");
                         Element element2 = element.selectFirst("div.property-value");
 
-                        System.out.println();
+
 
                         if (element1 != null && element1.text().equals("Marka")) {// element1 yani div.property-key  element 1 boş değilse şart doğruysa element1t.text yani yazılı ismi "Markaya eşitse " arbaModel
                             arabaMarka.add(element2.text()); //arabaMarkaya arabanın ismini ekle
