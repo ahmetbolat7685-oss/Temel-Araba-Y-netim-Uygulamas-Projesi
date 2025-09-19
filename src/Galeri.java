@@ -19,6 +19,7 @@ public class Galeri {
 
         ArrayList<String> arabaLink = new ArrayList<>();
         ArrayList<String> arabaMarka = new ArrayList<>();
+        ArrayList<String> arabaModel = new ArrayList<>();
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
@@ -80,31 +81,37 @@ public class Galeri {
                 }
                 System.out.println(arabaLink.size());// arabalinkin uzunluğunu al yani linklerin sizenı al
 
+                for (String ilanMarka : arabaLink){// arabalinklerin dizisinde dönüldü ve ilanMarkaya atandı
 
+                    Document doc = Jsoup.connect(ilanMarka).get();// Documente doc ile de ilanMarkasında olan linklerine get ile erişildi ve doca atandı
 
-                for (String ilanMarka : arabaLink){
+                    Elements elements = doc.select("div.property-item");// Elenments hepsinin üzerinde dönülüyor ve slect ile div propertyin yani sayfanın hepsini alıyoruz
 
-                    Document doc = Jsoup.connect(ilanMarka).get();
-
-                    Elements elements = doc.select("div.property-item");
-
-                    for (Element element:elements){
+                    for (Element element:elements){// Element ile sadece elements üzerinde dönülüyor
                         Element element1 = element.selectFirst("div.property-key");
                         Element element2 = element.selectFirst("div.property-value");
 
 
-                        if (element1 != null && element1.text().equals("Marka")) {
+                        if (element1 != null && element1.text().equals("Marka")) {// element1 yani div.property-key  element 1 boş değilse şart doğruysa element1t.text yani yazılı ismi "Markaya eşitse " arbaModel
                             arabaMarka.add(element2.text());
                             System.out.println("Marka: " + element2.text() + " Link: " + ilanMarka);
                         }
-                    }
 
+                        if (element1.text().equals("Model")){
+                            arabaModel.add(element2.text());
+                            System.out.println("Model" + element2.text() + "Link: "+ilanMarka);
+                        }
+                    }
+                    System.out.println(arabaMarka.size());
+
+                    System.out.println(arabaModel.size());
                 }
 
 
             }
 
             else if (secim==2){
+
 
 
             }
