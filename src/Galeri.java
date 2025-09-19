@@ -92,15 +92,14 @@ public class Galeri {
                         Element element2 = element.selectFirst("div.property-value");
 
 
-
                         if (element1 != null && element1.text().equals("Marka")) {// element1 yani div.property-key  element 1 boş değilse şart doğruysa element1t.text yani yazılı ismi "Markaya eşitse " arbaModel
                             arabaMarka.add(element2.text()); //arabaMarkaya arabanın ismini ekle
                             System.out.println("Marka: " + element2.text() + " Link: " + ilanMarka);// element2 yani araba ismi ve ilanMarkayı Yazdır
                         }
 
-                        if (element1.text().equals("Model")){// eğer element1.text yani araba ismi "Modele" eşitse
-                            arabaModel.add(element2.text());// arabaModel dizisine elemen2.text yani arabanın ismini ekle
-                            System.out.println("Model" + element2.text() + "Link: "+arabaLink);// arabanın adı ve arabaLinkini de beraber ekrana yazdır
+                        if (element1 != null && element1.text().equals("Model")) {
+                            arabaModel.add(element2.text());
+                            System.out.println("Model: " + element2.text() + " Link: " + ilanMarka);
                         }
                     }
                     System.out.println(arabaMarka.size());
