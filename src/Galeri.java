@@ -7,6 +7,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import javax.print.Doc;
 
 
 public class Galeri {
@@ -15,6 +16,9 @@ public class Galeri {
 
 
         ArrayList<Araba> mevcutArabalar = new ArrayList<>(); // Araba classında mevcutArabalar değişkeni tutan bir ArrayList dizisidir
+
+        ArrayList<String> arabaLink = new ArrayList<>();
+        ArrayList<String> arabaMarka = new ArrayList<>();
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
@@ -52,7 +56,7 @@ public class Galeri {
 
             scanner.nextLine();// Enter hatası
             if (secim == 1) {
-                 ArrayList<String> arabaLink = new ArrayList<>(); // arabaLinkleri adlı bir arrayList oluşturdum
+                 // arabaLinkleri adlı bir arrayList oluşturdum
 
                 for(int i =0; i <=20; i++){ // başlangıçta ilk 0 dan 20 kadar olan bir for döngüsü oluşturdum
 
@@ -76,7 +80,36 @@ public class Galeri {
                 }
                 System.out.println(arabaLink.size());// arabalinkin uzunluğunu al yani linklerin sizenı al
 
-            } else if (secim == 2) { // Fiyata göre Arabalar Filtrelendi
+
+
+                for (String ilanMarka : arabaLink){
+
+                    Document doc = Jsoup.connect(ilanMarka).get();
+
+                    Elements elements = doc.select("div.property-item");
+
+                    for (Element element:elements){
+                        Element element1 = element.selectFirst("div.property-key");
+                        Element element2 = element.selectFirst("div.property-value");
+
+
+                        if (element1 != null && element1.text().equals("Marka")) {
+                            arabaMarka.add(element2.text());
+                            System.out.println("Marka: " + element2.text() + " Link: " + ilanMarka);
+                        }
+                    }
+
+                }
+
+
+            }
+
+            else if (secim==2){
+
+
+            }
+
+            else if (secim == 3) { // Fiyata göre Arabalar Filtrelendi
 
                 System.out.print("Fiyat Giriniz:");
                 double fiyat = scanner.nextDouble();
