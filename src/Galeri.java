@@ -20,6 +20,8 @@ public class Galeri {
         ArrayList<String> arabaLink = new ArrayList<>();
         ArrayList<String> arabaMarka = new ArrayList<>();
         ArrayList<String> arabaModel = new ArrayList<>();
+        ArrayList<String> arabaYil = new ArrayList<>();
+        ArrayList<String> arabaKilometre = new ArrayList<>();
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
@@ -101,12 +103,24 @@ public class Galeri {
                             arabaModel.add(element2.text());
                             System.out.println("Model: " + element2.text() + " Link: " + ilanMarka);
                         }
+
+                        if(element1 != null && element1.text().equals("Yıl")){
+                            arabaYil.add(element2.text());
+                            System.out.println("Yıl :"+ element2.text()+"Link:"+ilanMarka);
+                        }
+
+                        if (element1 != null && element1.text().equals("Kilometre")){
+                            arabaKilometre.add(element2.text());
+                            System.out.println("Kilometre"+ element2.text()+"Link:"+ilanMarka);
+                        }
                     }
 
                 }
                 System.out.println("Araba Linkleri"+arabaLink.size());
                 System.out.println("Araba Markaları"+arabaMarka.size());
                 System.out.println("Araba Modelleri"+arabaModel.size());
+                System.out.println("Araba Yıl :"+arabaYil.size());
+                System.out.println("Araba Kilometre:"+arabaKilometre.size());
 
             }
 
