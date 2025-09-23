@@ -22,12 +22,18 @@ public class Galeri {
         ArrayList<String> arabaModel = new ArrayList<>();
         ArrayList<String> arabaYil = new ArrayList<>();
         ArrayList<String> arabaKilometre = new ArrayList<>();
+        ArrayList<String> arabaSeri = new ArrayList<>();
+        ArrayList<String> arabaVitesTipi = new ArrayList<>();
+        ArrayList<String> arabaYakıtTipi = new ArrayList<>();
+        ArrayList<String> arabaKasaTipi = new ArrayList<>();
+
 
         mevcutArabalar.add(new Araba(1, "Toyota", "Corolla", 2020, 20000)); // add = eklemek anlamına gelir
         mevcutArabalar.add(new Araba(2, "Skoda", "Wolswogen", 2010, 30000));
         mevcutArabalar.add(new Araba(3, "Renault", "Clio", 2025, 40000));
         mevcutArabalar.add(new Araba(4, "Wolswogen", "Jetta", 2023, 50000));
         mevcutArabalar.add(new Araba(5, "Renault", "Toros", 2024, 60000));
+
 
         ArrayList<String> satisKayitlari = new ArrayList<>(); // String tipinde tutan ve değerleri satisKayitlarına atanan bir String ArrayList dizisi
 
@@ -96,23 +102,44 @@ public class Galeri {
 
                         if (element1 != null && element1.text().equals("Marka")) {// element1 yani div.property-key  element 1 boş değilse şart doğruysa element1t.text yani yazılı ismi "Markaya eşitse " arbaModel
                             arabaMarka.add(element2.text()); //arabaMarkaya arabanın ismini ekle
-                            System.out.println("Marka: " + element2.text() + " Link: " + ilanMarka);// element2 yani araba ismi ve ilanMarkayı Yazdır
+                            System.out.println("Marka: " + element2.text() +" "+ " Link: " + ilanMarka);// element2 yani araba ismi ve ilanMarkayı Yazdır
                         }
 
                         if (element1 != null && element1.text().equals("Model")) {
                             arabaModel.add(element2.text());
-                            System.out.println("Model: " + element2.text() + " Link: " + ilanMarka);
+                            System.out.println("Model: " + element2.text() +" "+ " Link: " + ilanMarka);
                         }
 
                         if(element1 != null && element1.text().equals("Yıl")){
                             arabaYil.add(element2.text());
-                            System.out.println("Yıl :"+ element2.text()+"Link:"+ilanMarka);
+                            System.out.println("Yıl :"+ element2.text()+" "+ "Link:"+ilanMarka);
                         }
 
                         if (element1 != null && element1.text().equals("Kilometre")){
                             arabaKilometre.add(element2.text());
-                            System.out.println("Kilometre"+ element2.text()+"Link:"+ilanMarka);
+                            System.out.println("Kilometre"+ element2.text()+" "+ "Link:"+ilanMarka);
                         }
+
+                        if (element1 != null&& element1.text().equals("Seri")){
+                            arabaSeri.add(element2.text());
+                            System.out.println("Seri:"+element2.text()+" " +"Link:"+ilanMarka);
+                        }
+
+                        if (element1 != null && element1.text().equals("Vites Tipi")){
+                            arabaVitesTipi.add(element2.text());
+                            System.out.println("Vites Tipi:"+element2.text()+ " " +"Link:"+ilanMarka);
+                        }
+
+                        if (element1 != null && element1.text().equals("Yakıt Tipi")){
+                            arabaYakıtTipi.add(element2.text());
+                            System.out.println("Yakıt Tipi:"+element2.text()+" "+ "Link:"+ilanMarka);
+                        }
+
+                        if (element1 != null && element1.equals("Kasa Tipi")){
+                            arabaKasaTipi.add(element2.text());
+                            System.out.println("Kasa Tipi:"+element2.text()+" " +ilanMarka);
+                        }
+
                     }
 
                 }
@@ -121,6 +148,9 @@ public class Galeri {
                 System.out.println("Araba Modelleri"+arabaModel.size());
                 System.out.println("Araba Yıl :"+arabaYil.size());
                 System.out.println("Araba Kilometre:"+arabaKilometre.size());
+                System.out.println("Araba Seri:"+arabaSeri.size());
+                System.out.println("Vites Tipi:"+arabaVitesTipi.size());
+                System.out.println("Yakıt Tipi:"+ arabaYakıtTipi.size());
 
             }
 
